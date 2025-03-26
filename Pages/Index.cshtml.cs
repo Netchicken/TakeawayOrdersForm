@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+using TakeawayOrdersForm.DTO;
+
 namespace TakeawayOrdersForm.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
+        [BindProperty]
+        public MealOrder mealOrder { get; set; } = new MealOrder();
 
         public void OnGet()
         {

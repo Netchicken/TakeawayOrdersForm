@@ -4,7 +4,61 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="card" style=" margin-top: 20px">
+    <div class="card-header">
+        <h1>Add Your Title</h1>
+        <h3>Header</h3>
+        <p class="card-text">Add stuff here</p>
+    </div>
+    <div class="card-body">
+       
+        <form method="post">
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col">
+                        <h5>Choose your meal types</h5>
+                        @for (int i = 0; i < Model.mealOrder.meals.Count(); i++)
+                        {
+                            <input name="AreChecked" type="checkbox" value=@Model.mealOrder.meals[i] />
+                            @Model.mealOrder.meals[i]
+                            <br />
+
+                        }
+                    </div>
+                    <div class="col">
+                        <h5>How many meals of that type?</h5>
+                      <input type="number" asp-for="@Model.mealOrder.TwoPersonMealTotal" />
+                       <input type="number" asp-for="@Model.mealOrder.FourPersonMealTotal" />
+                       <input type="number" asp-for="@Model.mealOrder.SixPersonMealTotal" />
+
+                    </div>
+
+                    <div class="col">
+                        <h5>Choose your Membership type</h5>
+                        @for (int i = 0; i < Model.mealOrder.meals.Count(); i++)
+                        {
+                            <input name="AreChecked" type="checkbox" value=@Model.mealOrder.membershipTypes[i] />
+                            @Model.mealOrder.membershipTypes[i]
+                            <br />
+
+                        }
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <input type="submit" value="Submit" asp-action="Index" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <h3>Footer</h3>
+
+        <div class="row">
+            <p class="card-text">Add stuff here</p>
+        </div>
+    </div>
 </div>
