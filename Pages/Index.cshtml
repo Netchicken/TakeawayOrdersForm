@@ -11,14 +11,13 @@
         <p class="card-text">Add stuff here</p>
     </div>
     <div class="card-body">
-       
+
         <form method="post">
             <div class="form-group">
                 <div class="row">
 
                     <div class="col">
                         <h5>Choose your meal types</h5>
-                        @*@foreach (var meal in Model.mealOrder.meals)*@
                         @for (var index = 0; index < Model.mealOrder.MealList.Count(); index++)
                         {
 
@@ -28,8 +27,7 @@
                             </label>
                             <label> - How many meals?</label>
                             <input type="number" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" class="form-check-input" style="min-width: 10%; height: 20px" />
-
-                            <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Id" />
+                                                        <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Id" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].LabelName" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Price" />
@@ -37,7 +35,7 @@
 
                         }
                     </div>
-             
+
 
                     <div class="col">
                         <h5>Choose your Membership type</h5>
@@ -48,23 +46,13 @@
                             <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].Id" />
                             <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].LabelName" />
                             <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].Discount" />
-                          
+
                         }
                     </div>
 
                 </div>
 
-                @*<div class="row">
-                    <div class="col">
-                        <h5>Totals</h5>
-                        Discount  <input asp-for="@Model.mealOrder.Discount" /> <br />
-                        Tax <input  asp-for="@Model.mealOrder.Tax" /> <br />
-                        Total Price <input  asp-for="@Model.mealOrder.TotalPrice" />
 
-                    </div>
-                </div>*@
-
-                
                 <div class="row">
                     <input type="submit" value="Submit" asp-action="Index" />
                 </div>
@@ -79,3 +67,16 @@
         </div>
     </div>
 </div>
+
+
+
+@*<div class="row">
+        <div class="col">
+            <h5>Totals</h5>
+            Discount  <input asp-for="@Model.mealOrder.Discount" /> <br />
+            Tax <input  asp-for="@Model.mealOrder.Tax" /> <br />
+            Total Price <input  asp-for="@Model.mealOrder.TotalPrice" />
+
+        </div>
+    </div>*@
+
