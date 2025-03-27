@@ -18,21 +18,39 @@
 
                     <div class="col">
                         <h5>Choose your meal types</h5>
-                        @for (int i = 0; i < Model.mealOrder.meals.Count(); i++)
+                        @*@foreach (var meal in Model.mealOrder.meals)*@
+                        @for (var index = 0; index < Model.mealOrder.MealList.Count(); index++)
                         {
-                            <input name="AreChecked" type="checkbox" value=@Model.mealOrder.meals[i] />
-                            @Model.mealOrder.meals[i]
+
+                            <input type="checkbox" asp-for="@Model.mealOrder.MealList[index].IsChecked" class="form-check-input" />
+                            <label class="form-check-label" asp-for="@Model.mealOrder.MealList[index].IsChecked"> @Model.mealOrder.MealList[index].LabelName
+                            </label>
+                            <label> - How many meals?</label>
+                            <input type="number" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" class="form-check-input" style="min-width: 10%; height: 20px" />
+
+                            <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Id" />
+                            <input type="hidden" asp-for="@Model.mealOrder.MealList[index].LabelName" />
+                            <input type="hidden" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" />
                             <br />
 
                         }
                     </div>
-                    <div class="col">
+                    @*<div class="col">
                         <h5>How many meals of that type?</h5>
-                      <input type="number" asp-for="@Model.mealOrder.TwoPersonMealTotal" />
-                       <input type="number" asp-for="@Model.mealOrder.FourPersonMealTotal" />
-                       <input type="number" asp-for="@Model.mealOrder.SixPersonMealTotal" />
 
-                    </div>
+                        @for (var index = 0; index < Model.mealOrder.MembershipList.Count(); index++)
+                        {
+                            <input type="checkbox" asp-for="@Model.mealOrder.MembershipList[index].IsChecked" class="form-check-input" />
+                            <label class="form-check-label" asp-for="@Model.mealOrder.MembershipList[index].IsChecked">
+                                @Model.mealOrder.MealList[index].LabelName
+                            </label>
+                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[index].Id" />
+                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[index].LabelName" />
+                            <br />
+                        }
+
+
+                    </div>*@
 
                     <div class="col">
                         <h5>Choose your Membership type</h5>
@@ -45,8 +63,18 @@
                         }
                     </div>
 
-
                 </div>
+
+                <div class="row">
+                    <div class="col">
+                        <h5>Totals</h5>
+                        Discount  <input asp-for="@Model.mealOrder.Discount" /> <br />
+                        Tax <input  asp-for="@Model.mealOrder.Tax" /> <br />
+                        Total Price <input  asp-for="@Model.mealOrder.TotalPrice" />
+
+                    </div>
+                </div>
+
 
                 <div class="row">
                     <input type="submit" value="Submit" asp-action="Index" />

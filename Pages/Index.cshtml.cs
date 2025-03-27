@@ -7,11 +7,25 @@ namespace TakeawayOrdersForm.Pages
 {
     public class IndexModel : PageModel
     {
+        //https://code-maze.com/implement-checkbox-list-aspnetcore/
+
         [BindProperty]
         public MealOrder mealOrder { get; set; } = new MealOrder();
+        [BindProperty]
+        public List<string> SelectedMealOrders { get; set; } = new List<string>();
 
         public void OnGet()
         {
+
+        }
+
+        public void OnPost()
+        {
+
+            var selectedCourses = mealOrder.MealList.Where(x => x.IsChecked).ToList();
+
+
+
 
         }
     }
