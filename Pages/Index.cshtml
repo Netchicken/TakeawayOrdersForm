@@ -23,7 +23,8 @@
                         {
 
                             <input type="checkbox" asp-for="@Model.mealOrder.MealList[index].IsChecked" class="form-check-input" />
-                            <label class="form-check-label" asp-for="@Model.mealOrder.MealList[index].IsChecked"> @Model.mealOrder.MealList[index].LabelName
+                            <label class="form-check-label" asp-for="@Model.mealOrder.MealList[index].IsChecked">
+                                @Model.mealOrder.MealList[index].LabelName
                             </label>
                             <label> - How many meals?</label>
                             <input type="number" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" class="form-check-input" style="min-width: 10%; height: 20px" />
@@ -31,26 +32,12 @@
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Id" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].LabelName" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" />
+                            <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Price" />
                             <br />
 
                         }
                     </div>
-                    @*<div class="col">
-                        <h5>How many meals of that type?</h5>
-
-                        @for (var index = 0; index < Model.mealOrder.MembershipList.Count(); index++)
-                        {
-                            <input type="checkbox" asp-for="@Model.mealOrder.MembershipList[index].IsChecked" class="form-check-input" />
-                            <label class="form-check-label" asp-for="@Model.mealOrder.MembershipList[index].IsChecked">
-                                @Model.mealOrder.MealList[index].LabelName
-                            </label>
-                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[index].Id" />
-                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[index].LabelName" />
-                            <br />
-                        }
-
-
-                    </div>*@
+             
 
                     <div class="col">
                         <h5>Choose your Membership type</h5>

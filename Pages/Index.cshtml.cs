@@ -24,6 +24,13 @@ namespace TakeawayOrdersForm.Pages
 
             var selectedCourses = mealOrder.MealList.Where(x => x.IsChecked).ToList();
 
+            float total = 0;
+
+            for (int i = 0; i < selectedCourses.Count; i++)
+            {
+                total += selectedCourses[i].Price * selectedCourses[i].CountOfMeals;
+            }
+
 
 
 
