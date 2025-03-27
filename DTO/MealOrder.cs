@@ -15,13 +15,14 @@
 
         public List<Membership> MembershipList { get; set; } = new List<Membership>() {
             new Membership
-            {Id=1,LabelName="Bronze", NameTotal = 0, Discount = 10, IsChecked=false},
+            {Id=1,LabelName="Bronze", NameTotal = 0, Discount = 10},
             new Membership
-            {Id=2, LabelName="Silver", NameTotal = 0, Discount = 5, IsChecked=false},
+            {Id=2, LabelName="Silver", NameTotal = 0, Discount = 5},
             new Membership
-            {Id=3,LabelName="Gold", NameTotal = 0, Discount = 0, IsChecked=false},
+            {Id=3,LabelName="Gold", NameTotal = 0, Discount = 0},
                     };
 
+        public string selectedMembership { get; set; }
 
 
         public List<Discounts> DiscountList { get; set; } = new List<Discounts>() {
@@ -34,16 +35,11 @@
                     };
 
 
-        public string[] membershipTypes = ["Bronze", "Silver", "Gold"];
-        public int[] mealPrices = [15, 20, 30];
-
-
 
         public float GrandTotalDiscount { get; set; }
         public float GrandTotalAfterDiscount { get; set; }
-
-        public float Discount { get; set; }
         public float Tax { get; set; }
+        public float Discount { get; set; }
         public float TotalPrice { get; set; }
 
 

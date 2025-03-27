@@ -32,7 +32,7 @@ namespace TakeawayOrdersForm.Pages
             }
 
 
-
+            var selectedMembership = mealOrder.MembershipList.FirstOrDefault();
 
         }
     }

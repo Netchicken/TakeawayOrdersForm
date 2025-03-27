@@ -7,6 +7,6 @@
         public float NameTotal { get; set; }
         public float Discount { get; set; }
 
-        public bool IsChecked { get; set; }
+
     }
 }

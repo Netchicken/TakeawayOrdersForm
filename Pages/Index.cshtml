@@ -41,18 +41,20 @@
 
                     <div class="col">
                         <h5>Choose your Membership type</h5>
-                        @for (int i = 0; i < Model.mealOrder.meals.Count(); i++)
+                        @for (int i = 0; i < Model.mealOrder.MembershipList.Count(); i++)
                         {
-                            <input name="AreChecked" type="checkbox" value=@Model.mealOrder.membershipTypes[i] />
-                            @Model.mealOrder.membershipTypes[i]
-                            <br />
+                            <input type="radio" asp-for="@Model.mealOrder.MembershipList[i]." value="@Model.mealOrder.selectedMembership" class="form-check-input" /> @Model.mealOrder.MembershipList[i].LabelName <br />
 
+                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].Id" />
+                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].LabelName" />
+                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].Discount" />
+                          
                         }
                     </div>
 
                 </div>
 
-                <div class="row">
+                @*<div class="row">
                     <div class="col">
                         <h5>Totals</h5>
                         Discount  <input asp-for="@Model.mealOrder.Discount" /> <br />
@@ -60,9 +62,9 @@
                         Total Price <input  asp-for="@Model.mealOrder.TotalPrice" />
 
                     </div>
-                </div>
+                </div>*@
 
-
+                
                 <div class="row">
                     <input type="submit" value="Submit" asp-action="Index" />
                 </div>
