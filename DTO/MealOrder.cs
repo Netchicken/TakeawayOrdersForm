@@ -22,7 +22,7 @@
             {Id=3,LabelName="Gold", NameTotal = 0, Discount = 0},
                     };
 
-        public string selectedMembership { get; set; }
+        public string selectedMembershipBSG { get; set; }
 
 
         public List<Discounts> DiscountList { get; set; } = new List<Discounts>() {

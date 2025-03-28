@@ -6,6 +6,7 @@
         public string LabelName { get; set; }
         public float NameTotal { get; set; }
         public float Discount { get; set; }
+        public string selectedMembership { get; set; }
 
 
     }

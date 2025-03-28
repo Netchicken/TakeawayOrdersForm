@@ -27,7 +27,8 @@
                             </label>
                             <label> - How many meals?</label>
                             <input type="number" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" class="form-check-input" style="min-width: 10%; height: 20px" />
-                                                        <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Id" />
+
+                            <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Id" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].LabelName" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Price" />
@@ -36,16 +37,18 @@
                         }
                     </div>
 
-
+                    @*https://www.learnrazorpages.com/razor-pages/forms/radios*@
                     <div class="col">
                         <h5>Choose your Membership type</h5>
                         @for (int i = 0; i < Model.mealOrder.MembershipList.Count(); i++)
                         {
-                            <input type="radio" asp-for="@Model.mealOrder.selectedMembership" value="" name="membership" class="form-check-input" /> @Model.mealOrder.MembershipList[i].LabelName <br />
+                            <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" value="test" 
+                                   name="membership" class="form-radio-input" /> @Model.mealOrder.MembershipList[i].LabelName <br />
 
                             <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].Id" />
                             <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].LabelName" />
                             <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].Discount" />
+                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].selectedMembership" />
 
                         }
                     </div>

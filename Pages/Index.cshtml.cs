@@ -32,7 +32,16 @@ namespace TakeawayOrdersForm.Pages
             }
 
 
-            var selectedMembership = mealOrder.selectedMembership;
+            //var selectedMembership = mealOrder.MembershipList.Where(x => x.selectedMembership == x.LabelName).ToList(); 
+
+            foreach (var item in mealOrder.MembershipList)
+            {
+                if (mealOrder.selectedMembershipBSG == item.LabelName)
+                {
+                    var selectedMembership = item;
+                }
+            }
+
 
         }
     }
