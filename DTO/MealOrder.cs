@@ -25,26 +25,6 @@
         public string selectedMembershipBSG { get; set; }
 
 
-        public List<Discounts> DiscountList { get; set; } = new List<Discounts>() {
-            new Discounts
-            {Id=1, LabelName="10% Discount", Amount = 10},
-            new Discounts
-            {Id=2, LabelName="5% Discount", Amount = 5},
-            new Discounts
-            {Id=3, LabelName="Tax", Amount = 8},
-                    };
-
-
-
-        public float GrandTotalDiscount { get; set; }
-        public float GrandTotalAfterDiscount { get; set; }
-        public float Tax { get; set; }
-        public float Discount { get; set; }
-        public float TotalPrice { get; set; }
-
-
-
-
 
 
     }

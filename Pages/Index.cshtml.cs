@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+using System.Diagnostics;
+
 using TakeawayOrdersForm.DTO;
+using TakeawayOrdersForm.Operations;
 
 namespace TakeawayOrdersForm.Pages
 {
@@ -14,6 +17,8 @@ namespace TakeawayOrdersForm.Pages
         [BindProperty]
         public List<string> SelectedMealOrders { get; set; } = new List<string>();
 
+        public CalculateCost calculateCost { get; set; } = new CalculateCost();
+
         public void OnGet()
         {
 
@@ -22,25 +27,29 @@ namespace TakeawayOrdersForm.Pages
         public void OnPost()
         {
 
-            var selectedCourses = mealOrder.MealList.Where(x => x.IsChecked).ToList();
+            List<CheckBoxMeals> selectedCourses = mealOrder.MealList.Where(x => x.IsChecked).ToList();
 
-            float total = 0;
-
-            for (int i = 0; i < selectedCourses.Count; i++)
-            {
-                total += selectedCourses[i].Price * selectedCourses[i].CountOfMeals;
-            }
+            Debug.WriteLine("Selected Courses: " + selectedCourses);
 
 
             //var selectedMembership = mealOrder.MembershipList.Where(x => x.selectedMembership == x.LabelName).ToList(); 
 
+            // Debugging information
+            Debug.WriteLine("Selected Membership BSG: " + mealOrder.selectedMembershipBSG);
+
+            Membership selectedMembership = new Membership();
             foreach (var item in mealOrder.MembershipList)
             {
                 if (mealOrder.selectedMembershipBSG == item.LabelName)
                 {
-                    var selectedMembership = item;
+                    selectedMembership = item;
+                    // Debugging information
+                    Debug.WriteLine("Selected Membership: " + selectedMembership.Discount);
                 }
             }
+
+            ViewData["totalCost"] = calculateCost.CalculateMealCost(selectedCourses, selectedMembership);
+
 
 
         }

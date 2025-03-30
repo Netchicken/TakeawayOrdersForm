@@ -1,10 +1,11 @@
 ﻿namespace TakeawayOrdersForm.DTO
 {
-    public class Discounts
+    public static class Discounts
     {
-        public int Id { get; set; }
-        public string LabelName { get; set; }
-        public float Amount { get; set; }
+        public static float Tax { get; set; } = 0.08F;
+
+        public static float TwoMealDiscount { get; set; } = 0.03F;
+        public static float ThreeMealDiscount { get; set; } = 0.05F;
 
 
     }

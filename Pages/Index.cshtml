@@ -42,22 +42,12 @@
                     <h5>Choose your Membership type</h5>
                     @for (int i = 0; i < Model.mealOrder.MembershipList.Count(); i++)
                     {
-                        <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" value="test"
-                               name="membership" class="form-radio-input" /> @Model.mealOrder.MembershipList[i].LabelName <br />
-
-                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].Id" />
-                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].LabelName" />
-                            <input type="hidden" asp-for="@Model.mealOrder.MembershipList[i].Discount" />
-
+                        <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" value="@Model.mealOrder.MembershipList[i].LabelName"
+                               name="mealOrder.selectedMembershipBSG" class="form-radio-input" /> @Model.mealOrder.MembershipList[i].LabelName <br />
                         }
-
-                    <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" name="gender" value="Male" />Male <br />
-                    <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" name="gender" value="Female" />Felale <br />
-                    <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" name="gender" value="Unspecified" />Goodness <br />
 
 
                 </div>
-
                 </div>
 
 
@@ -71,8 +61,8 @@
         <h3>Footer</h3>
 
         <div class="row">
-            <p class="card-text">Add stuff here</p>
-        </div>
+            <h5 class="card-text">Final Price $  @ViewData["totalCost"] </h5>
+</div>
     </div>
 </div>
 
