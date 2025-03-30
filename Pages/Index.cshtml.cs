@@ -27,7 +27,7 @@ namespace TakeawayOrdersForm.Pages
         public void OnPost()
         {
 
-            List<CheckBoxMeals> selectedCourses = mealOrder.MealList.Where(x => x.IsChecked).ToList();
+            List<CheckBoxMeals>? selectedCourses = mealOrder.MealList.Where(x => x.IsChecked).ToList();
 
             Debug.WriteLine("Selected Courses: " + selectedCourses);
 
@@ -37,7 +37,7 @@ namespace TakeawayOrdersForm.Pages
             // Debugging information
             Debug.WriteLine("Selected Membership BSG: " + mealOrder.selectedMembershipBSG);
 
-            Membership selectedMembership = new Membership();
+            Membership? selectedMembership = new Membership();
             foreach (var item in mealOrder.MembershipList)
             {
                 if (mealOrder.selectedMembershipBSG == item.LabelName)
@@ -48,7 +48,10 @@ namespace TakeawayOrdersForm.Pages
                 }
             }
 
+
             ViewData["totalCost"] = calculateCost.CalculateMealCost(selectedCourses, selectedMembership);
+
+
 
 
 

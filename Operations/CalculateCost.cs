@@ -22,7 +22,7 @@ namespace TakeawayOrdersForm.Operations
 
             // Membership discount
 
-            float grandTotal = (total * selectedMembership.Discount) + total;
+            float grandTotal = (total * selectedMembership.Discount) / 100 + total;
 
             grandTotal = ApplyMembershipDiscount(selectedCourses, grandTotal);
 
