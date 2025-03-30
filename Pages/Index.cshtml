@@ -21,10 +21,10 @@
                         @for (var index = 0; index < Model.mealOrder.MealList.Count(); index++)
                         {
 
-                            <input type="checkbox" asp-for="@Model.mealOrder.MealList[index].IsChecked" class="form-check-input; accent-color: #007bff; background-color: #74992e; appearance: checkbox;" />
+                            <input type="checkbox" asp-for="@Model.mealOrder.MealList[index].IsChecked" class="form-check-input" style="accent-color: #007bff; background-color: #74992e; appearance: checkbox;" />
                             <label class="form-check-label" asp-for="@Model.mealOrder.MealList[index].IsChecked"> @Model.mealOrder.MealList[index].LabelName</label>
                             <label> - How many meals?</label>
-                            <input type="number" asp-for="@Model.mealOrder.MealList[index].CountOfMeals"  style="min-width: 10%; height: 20px" />
+                            <input type="number" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" style="min-width: 10%; height: 20px" />
 
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Id" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].LabelName" />
@@ -35,24 +35,36 @@
                         }
                     </div>
 
-                    @*https://www.learnrazorpages.com/razor-pages/forms/radios*@
-                <div class="col">
-                    <h5>Choose your Membership type</h5>
-                    @for (int i = 0; i < Model.mealOrder.MembershipList.Count(); i++)
-                    {
-                        <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" value="@Model.mealOrder.MembershipList[i].LabelName"
-                               name="mealOrder.selectedMembershipBSG" class="form-radio-input" /> @Model.mealOrder.MembershipList[i].LabelName <br />
+                    <div class="col">
+                        @for (var index = 0; index < Model.mealOrder.MealList.Count(); index++)
+                        {
+
+                                                     <img src="~/images/@Model.mealOrder.MealList[index].Image" style="width: 50px; height: 50px; margin: 10px" /> <br />
                         }
 
-
-                </div>
-                </div>
+                    </div>
 
 
-                <div class="row">
-                    <input type="submit" value="Submit" asp-action="Index" />
+
+
+                        @*https://www.learnrazorpages.com/razor-pages/forms/radios*@
+                        <div class="col">
+                            <h5>Choose your Membership type</h5>
+                            @for (int i = 0; i < Model.mealOrder.MembershipList.Count(); i++)
+                            {
+                                <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" value="@Model.mealOrder.MembershipList[i].LabelName"
+                                       name="mealOrder.selectedMembershipBSG" class="form-radio-input" /> @Model.mealOrder.MembershipList[i].LabelName <br />
+                                }
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <input type="submit" value="Submit" asp-action="Index" />
+                    </div>
                 </div>
-            </div>
         </form>
     </div>
     <div class="card-footer">

@@ -6,11 +6,11 @@
 
         public List<CheckBoxMeals> MealList { get; set; } = new List<CheckBoxMeals>() {
             new CheckBoxMeals
-            {Id=1, LabelName="Two Person Meal", Price = 15,IsChecked=false},
+            {Id=1, LabelName="Two Person Meal", Price = 15,IsChecked=false, Image="2.png"},
             new CheckBoxMeals
-            {Id=2, LabelName="Four Person Meal", Price = 20, IsChecked=false},
+            {Id=2, LabelName="Four Person Meal", Price = 20, IsChecked=false, Image="4.png"},
             new CheckBoxMeals
-            {Id=3, LabelName="Six Person Meal", Price = 30, IsChecked=false},
+            {Id=3, LabelName="Six Person Meal", Price = 30, IsChecked=false, Image="6.png"},
                     };
 
         public List<Membership> MembershipList { get; set; } = new List<Membership>() {
