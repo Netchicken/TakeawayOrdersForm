@@ -8,7 +8,7 @@
         public float CountOfMeals { get; set; }
         public bool IsChecked { get; set; }
 
-        public string? Image { get; set; }
+        public string Image { get; set; }
 
 
     }

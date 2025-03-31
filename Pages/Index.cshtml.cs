@@ -49,7 +49,7 @@ namespace TakeawayOrdersForm.Pages
             }
 
 
-            ViewData["totalCost"] = calculateCost.CalculateMealCost(selectedCourses, selectedMembership);
+            ViewData["totalCost"] = Math.Round(calculateCost.CalculateMealCost(selectedCourses, selectedMembership), 2);
 
 
 
