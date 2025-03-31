@@ -5,48 +5,46 @@ namespace TakeawayOrdersForm.Operations
 
     public class CalculateCost
     {
-        //  public MealOrder mealOrder { get; set; } = new MealOrder();
 
-
+        // This method calculates the total cost of the selected meals, including membership discounts and tax.
         public float CalculateMealCost(List<CheckBoxMeals> selectedCourses, Membership selectedMembership)
         {
             float total = 0;
 
+            // Calculate the total cost of the selected meals.
             for (int i = 0; i < selectedCourses.Count; i++)
             {
                 total += selectedCourses[i].Price * selectedCourses[i].CountOfMeals;
             }
 
-
-
-
-            // Membership discount
-
+            // Apply the membership discount to the total cost.
             float grandTotal = (total * selectedMembership.Discount) / 100 + total;
 
+            // Apply additional discounts based on the number of selected meals.
             grandTotal = ApplyMembershipDiscount(selectedCourses, grandTotal);
 
-            // Tax added on
+            // Add tax to the grand total.
             grandTotal = (float)((grandTotal * Discounts.Tax) + grandTotal);
+
             return grandTotal;
         }
 
-
-
-
-
+        // This private method applies additional discounts based on the number of selected meals.
         private float ApplyMembershipDiscount(List<CheckBoxMeals> selectedCourses, float grandTotal)
         {
-            // Discount for multiple brands
+            // Apply a discount based on the number of selected meals.
             switch (selectedCourses.Count)
             {
                 case 2:
+                    // Apply a discount for selecting two meals.
                     grandTotal = grandTotal - (float)((grandTotal * Discounts.TwoMealDiscount));
                     break;
                 case 3:
+                    // Apply a discount for selecting three meals.
                     grandTotal = grandTotal - (float)((grandTotal * Discounts.ThreeMealDiscount));
                     break;
                 default:
+                    // No additional discount for other cases.
                     break;
             }
 
@@ -55,63 +53,7 @@ namespace TakeawayOrdersForm.Operations
     }
 
 
-
-};
-
+}
 
 
 
-
-//   private void btnCalculate_Click(object sender, EventArgs e)
-//    {
-//        
-
-//        
-
-
-//       
-
-//       
-
-//       
-//        grandTotal = twoPersonMealTotal + fourPersonMealTotal + sixPersonMealTotal;
-
-//        if (rbBronze.Checked)
-//        {
-//            grandTotal = (grandTotal * bronze) + grandTotal;
-//        }
-//        else if (rbxSilver.Checked)
-//        {
-//            grandTotal = (grandTotal * silver) + grandTotal;
-//        }
-
-//        //discount for multiple brands
-//        switch (countOfMeals)
-//        {
-//            case 2:
-//                lblDiscountAmount.Text = "$" + (grandTotal * 0.03).ToString();
-//                grandTotal = grandTotal - (float)((grandTotal * 0.03));
-//                break;
-//            case 3:
-//                lblDiscountAmount.Text = "$" + (grandTotal * 0.05).ToString();
-//                grandTotal = grandTotal - (float)((grandTotal * 0.05));
-//                break;
-//            default:
-//                // code block
-//                break;
-//        }
-
-//        //tax added on
-//        lblTaxAmount.Text = "$" + (grandTotal * 0.08).ToString();
-//        grandTotal = (float)((grandTotal * 0.08) + grandTotal);
-
-//        lblTotalPrice.Text = "$" + grandTotal.ToString();
-
-
-//    }
-
-
-
-
-
-//}

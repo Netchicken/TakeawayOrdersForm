@@ -6,26 +6,31 @@
 
 <div class="card" style=" margin-top: 20px">
     <div class="card-header">
-        <h1>Gary's Takeaway Pizzas</h1>
-        <h3>Ham and Pineapple only</h3>
-        <p class="card-text">No we don't make any other types, get with it.</p>
+        <div class="row">
+            <div class="col">
+                <h1>Gary's Takeaway Pizzas</h1>
+                <h3>Ham and Pineapple only</h3>
+                <p class="card-text">No we don't make any other types, get with it.</p>
+            </div>
+            <div class="col">
+                <img src="~/images/pizza.png" style="width: 100px; height: 100px; margin: 10px" />
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="col">
             @for (var index = 0; index < Model.mealOrder.MealList.Count(); index++)
             {
-
                 <img src="~/images/@Model.mealOrder.MealList[index].Image" style="width: 50px; height: 50px; margin: 10px" />
-
                 <label>  &nbsp; &nbsp; &nbsp; &nbsp;</label>
-            }
-
+            }<br />
         </div>
+
+       
         <form method="post">
             <div class="form-group">
                 <div class="row">
-
-                    <div class="col">
+                     <div class="col">
                         <h5>Choose your meal types</h5>
                         @for (var index = 0; index < Model.mealOrder.MealList.Count(); index++)
                         {
@@ -35,11 +40,14 @@
                             <label> - How many meals?</label>
                             <input type="number" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" style="min-width: 10%; height: 20px" />
 
+                            //The<input type = "hidden" > tag is used to include data in a form that is not visible to the user. This data is sent to the server when the form is submitted.Hidden fields are useful for storing information that you need to pass along with the form submission but do not want the user to see or modify.
+
+
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Id" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].LabelName" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].CountOfMeals" />
                             <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Price" />
-                            <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Image" /> <!-- Include this hidden input -->
+                            <input type="hidden" asp-for="@Model.mealOrder.MealList[index].Image" />
                             <br />
 
                         }
@@ -53,12 +61,8 @@
                             <input type="radio" asp-for="@Model.mealOrder.selectedMembershipBSG" value="@Model.mealOrder.MembershipList[i].LabelName"
                                    name="mealOrder.selectedMembershipBSG" class="form-radio-input" /> @Model.mealOrder.MembershipList[i].LabelName <br />
                             }
-
-
-                    </div>
+                     </div>
                 </div>
-
-
                 <div class="row">
                     <input type="submit" value="Calculate Payment" asp-action="Index" />
                 </div>
