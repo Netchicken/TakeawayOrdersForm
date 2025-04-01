@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using System.Diagnostics;
 
-using TakeawayOrdersForm.DTO;
+using TakeawayOrdersForm.Model;
 using TakeawayOrdersForm.Operations;
 
 namespace TakeawayOrdersForm.Pages

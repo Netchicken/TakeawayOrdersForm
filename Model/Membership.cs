@@ -1,9 +1,9 @@
-﻿namespace TakeawayOrdersForm.DTO
+﻿namespace TakeawayOrdersForm.Model
 {
     public class Membership
     {
         public int Id { get; set; }
-        public string LabelName { get; set; }
+        public string? LabelName { get; set; }
         public float NameTotal { get; set; }
         public float Discount { get; set; }
     }

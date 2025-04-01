@@ -1,4 +1,4 @@
-﻿namespace TakeawayOrdersForm.DTO
+﻿namespace TakeawayOrdersForm.Model
 {
     public class CheckBoxMeals
     {
@@ -8,7 +8,5 @@
         public float CountOfMeals { get; set; }
         public bool IsChecked { get; set; }
         public string Image { get; set; }
-
-
     }
 }

@@ -1,8 +1,10 @@
-﻿namespace TakeawayOrdersForm.DTO
+﻿using TakeawayOrdersForm.Model;
+
+namespace TakeawayOrdersForm.Operations
 {
     public class MealOrder
     {
-        public string[] meals = ["Two Person Meal", "Four Person Meal", "Six Person Meal"];
+        //  public string[] meals = ["Two Person Meal", "Four Person Meal", "Six Person Meal"];
 
         public List<CheckBoxMeals> MealList { get; set; } = new List<CheckBoxMeals>() {
             new CheckBoxMeals
